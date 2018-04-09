@@ -54,3 +54,5 @@ class Router {
 }
 
 export default Router;
+
+//history做兼容
