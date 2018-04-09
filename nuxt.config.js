@@ -13,6 +13,6 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  plugins: [ { src: '~plugins/iview', ssr: false } ],
+  plugins: [{ src: '~plugins/iview', ssr: false }, { src: '~plugins/toast', ssr: false }],
   css: ['iview/dist/styles/iview.css',],
 }

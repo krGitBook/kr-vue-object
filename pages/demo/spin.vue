@@ -3,6 +3,7 @@
    <Spin :show="true">
     加载中...
   </Spin>
+  <toast-component/>
 </div>
   
 </template>
@@ -14,5 +15,8 @@ export default {
   components: {
     Spin
   },
+  mounted(){
+    // console.log(this.$msg); 
+  }
 }
 </script>
