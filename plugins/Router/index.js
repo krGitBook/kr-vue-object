@@ -13,6 +13,7 @@ class Router {
         this.getData();
         this.routes[this.currentUrl] && this.routes[this.currentUrl](this);
     }
+    //
     init(){
         this.bindLink();
         window.addEventListener('popstate', e => {
@@ -53,3 +54,5 @@ class Router {
 }
 
 export default Router;
+
+//history做兼容
