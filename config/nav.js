@@ -62,6 +62,12 @@ export default function (parameter) {
             iconSize: iconSize || 24,
             iconType: 'ios-navigate'
         },
+        {
+            label: '图片组件',
+            toPath: '/demo/krImg',
+            iconSize: iconSize || 24,
+            iconType: 'ios-navigate'
+        },
     ];
 
 }
