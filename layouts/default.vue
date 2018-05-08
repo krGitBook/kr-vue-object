@@ -163,7 +163,7 @@ import navData from '../config/nav'
 				return ;
 			}
 			let allName = this.navs({iconSize:this.iconSize});
-      let activePath = window.location.pathname;
+    		 	let activePath = window.location.pathname;
       
 			for (var i = 0; i < allName.length; i++) {
 				if(allName[i].toPath === activePath){
