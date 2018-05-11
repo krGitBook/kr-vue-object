@@ -47,7 +47,14 @@ const getDaysInOneMonth = require('./time/getDaysInOneMonth')
 const parseQueryString = require('./url/parseQueryString')
 const stringfyQueryString = require('./url/stringfyQueryString')
 
-
+function dowmFile(src){
+    var atag = document.createElement("a");
+    atag.id="downloadFile";
+    atag.download = src;
+    atag.href = src;
+    document.body.appendChild(atag);
+    atag.click();
+}
 module.exports = {
     arrayEqual,
 
