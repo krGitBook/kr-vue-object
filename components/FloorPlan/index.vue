@@ -1,11 +1,11 @@
 <template>
-    <div class="flow-chart-box" :style="boxStyle">
-        <div  class="flow-chart-top-toolbar" v-show="isTopBar" :style="topToobarStyle">
+    <div class="flow-chart-box">
+        <div  class="flow-chart-top-toolbar">
            
         </div>
 
         <div class="flow-chart-right-toolbar" >
-            <div class="over-view" :id="overview" v-show="isMap"></div>
+            <div class="over-view" :id="overview"></div>
             <div class="node-attrbute">
                 <slot name="attrbute"></slot> 
             </div>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import draw from './draw';
+import init from './draw';
 import dataFormat from './dataFormat';
 var canvasData = [ 
         { name: "未租", pos: "0 0", size:"50 50", color:"yellow"},
@@ -32,57 +32,27 @@ var canvasData = [
     ];
 var flowChart= '';
  export default {
-    props:{
-        show:{
-            default:true,
-            type:Boolean
-        },
-        type:{
-            default:'edit',
-            type:String
-        },
-        isMap:{
-            default:true,
-            type:Boolean
-        },
-        isLeftBar:{
-            default:true,
-            type:Boolean
-        },
-        isTopBar:{
-            default:true,
-            type:Boolean
-        }
-    },
     data(){
         return{
-            showText:false,
             overview:'overPlanview' + this._uid,
-            drawingBoard:'drawingPlanBoard' + this._uid,
-            fruit:['网格'],
-            flowChart:null,
-            boxStyle:{},
-            topToobarStyle:{},
-            isEdit:true,
+            drawingBoard:'drawingPlanBoard' + this._uid
         }
     },
     methods:{
-        mouseEnter(event){
+        mouseEnter(event,node){
              this.$emit('enter',canvasData,()=>{
-
+                 
              });
         },
-        mouseLeave(event){
+        mouseLeave(event,node){
              this.$emit('leave',canvasData);
         },
         mouseClick(event){
             var everyData = {};
             canvasData = [].concat(dataFormat.changeStatus(event));
             flowChart.nodeDataArray = canvasData;
-            this.$emit('click',everyData,canvasData);
-           
-        }
-        
+            this.$emit('click',everyData,canvasData); 
+        }  
     },
     mounted(){
         flowChart =  init(
