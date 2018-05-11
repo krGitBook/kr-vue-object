@@ -68,6 +68,12 @@ export default function (parameter) {
             iconSize: iconSize || 24,
             iconType: 'ios-navigate'
         },
+        {
+            label: '翻页效果',
+            toPath: '/demo/TurnPage',
+            iconSize: iconSize || 24,
+            iconType: 'ios-navigate'
+        },
     ];
 
 }
