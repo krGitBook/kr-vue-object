@@ -1,8 +1,6 @@
-
-
 function draw (go,content,data,clickFn,enterFn,leaveFn) {
-    if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
-    var $ = go.GraphObject.make;  // for conciseness in defining templates
+    if (window.goSamples) goSamples();  
+    var $ = go.GraphObject.make;  
 
     var myDiagram =
        $(go.Diagram, content,         
@@ -10,18 +8,12 @@ function draw (go,content,data,clickFn,enterFn,leaveFn) {
             initialContentAlignment: go.Spot.Center,   
             "undoManager.isEnabled": true
         });
-    
-    // function showMessage(s) {
-    //     // document.getElementById(overview).textContent = s;
-    // }
-    
+
+    //点击事件
     myDiagram.addDiagramListener("ObjectSingleClicked",
         function(e) {
         var data = Object.assign({},e)
-
-        // var part = e.subject.part;
-        clickFn(data)
-        // if (!(part instanceof go.Link)) showMessage("Clicked on " + part.data.name);
+        clickFn(data);
     });
     //绘制
     myDiagram.nodeTemplate =
@@ -34,12 +26,11 @@ function draw (go,content,data,clickFn,enterFn,leaveFn) {
         //元素位置
         new go.Binding("position", "pos", go.Point.parse).makeTwoWay(go.Point.stringify),
         $(go.TextBlock,
-        { margin: 12, stroke: "white", font: "bold 16px sans-serif" },
+        { margin: 12, stroke: "white", font: "bold 12px sans-serif" },
         new go.Binding("text", "name")),
-        { //鼠标事件
+        { //鼠标hover事件
             mouseEnter: function (e, node) { 
                 enterFn(e,node)
-                // ElementHover(node,true);
             },
             mouseLeave: function (e, node) { 
                 leaveFn(e,node)
@@ -47,12 +38,10 @@ function draw (go,content,data,clickFn,enterFn,leaveFn) {
         }
     );
     
-    
-    
     var myModel = $(go.Model);
-    myModel.nodeDataArray =[].concat(data)
-    
+    myModel.nodeDataArray =[].concat(data);
     myDiagram.model = myModel;
+
     return {diagram:myDiagram};
 }
 

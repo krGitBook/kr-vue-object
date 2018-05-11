@@ -3,22 +3,22 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _7dd822a1 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
-const _1600e7b0 = () => import('../pages/demo/progress.vue' /* webpackChunkName: "pages/demo/progress" */).then(m => m.default || m)
-const _5e2ca535 = () => import('../pages/demo/englishInput.vue' /* webpackChunkName: "pages/demo/englishInput" */).then(m => m.default || m)
-const _676c95a4 = () => import('../pages/demo/fixedTirTop/index.vue' /* webpackChunkName: "pages/demo/fixedTirTop/index" */).then(m => m.default || m)
-const _440de7bc = () => import('../pages/demo/infiniteScroll.vue' /* webpackChunkName: "pages/demo/infiniteScroll" */).then(m => m.default || m)
-const _77a4f2ce = () => import('../pages/demo/tree.vue' /* webpackChunkName: "pages/demo/tree" */).then(m => m.default || m)
-const _56d5e9a9 = () => import('../pages/demo/objSet/index.vue' /* webpackChunkName: "pages/demo/objSet/index" */).then(m => m.default || m)
-const _8b22feda = () => import('../pages/demo/searchToLocation.vue' /* webpackChunkName: "pages/demo/searchToLocation" */).then(m => m.default || m)
-const _086f4327 = () => import('../pages/demo/turnPage.vue' /* webpackChunkName: "pages/demo/turnPage" */).then(m => m.default || m)
-const _0c5bcd86 = () => import('../pages/demo/spin.vue' /* webpackChunkName: "pages/demo/spin" */).then(m => m.default || m)
-const _8a41f82c = () => import('../pages/demo/floorPlan.vue' /* webpackChunkName: "pages/demo/floorPlan" */).then(m => m.default || m)
-const _1887d8c7 = () => import('../pages/demo/vuePdf.vue' /* webpackChunkName: "pages/demo/vuePdf" */).then(m => m.default || m)
-const _8dae7736 = () => import('../pages/demo/flowChart.vue' /* webpackChunkName: "pages/demo/flowChart" */).then(m => m.default || m)
-const _5ad3931e = () => import('../pages/demo/krImg.vue' /* webpackChunkName: "pages/demo/krImg" */).then(m => m.default || m)
-const _2a31a35c = () => import('../pages/demo/objSet/EditPage.vue' /* webpackChunkName: "pages/demo/objSet/EditPage" */).then(m => m.default || m)
-const _bef0d926 = () => import('../pages/demo/fixedTirTop/every.vue' /* webpackChunkName: "pages/demo/fixedTirTop/every" */).then(m => m.default || m)
+const _f30c7f10 = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
+const _4a2d62ff = () => import('../pages/demo/progress.vue' /* webpackChunkName: "pages/demo/progress" */).then(m => m.default || m)
+const _2855388c = () => import('../pages/demo/englishInput.vue' /* webpackChunkName: "pages/demo/englishInput" */).then(m => m.default || m)
+const _231d80ad = () => import('../pages/demo/fixedTirTop/index.vue' /* webpackChunkName: "pages/demo/fixedTirTop/index" */).then(m => m.default || m)
+const _265f0153 = () => import('../pages/demo/infiniteScroll.vue' /* webpackChunkName: "pages/demo/infiniteScroll" */).then(m => m.default || m)
+const _448e60f0 = () => import('../pages/demo/tree.vue' /* webpackChunkName: "pages/demo/tree" */).then(m => m.default || m)
+const _20fe7d00 = () => import('../pages/demo/objSet/index.vue' /* webpackChunkName: "pages/demo/objSet/index" */).then(m => m.default || m)
+const _4cdf906a = () => import('../pages/demo/searchToLocation.vue' /* webpackChunkName: "pages/demo/searchToLocation" */).then(m => m.default || m)
+const _5d9d19fe = () => import('../pages/demo/turnPage.vue' /* webpackChunkName: "pages/demo/turnPage" */).then(m => m.default || m)
+const _7a32f394 = () => import('../pages/demo/spin.vue' /* webpackChunkName: "pages/demo/spin" */).then(m => m.default || m)
+const _0b6c07f3 = () => import('../pages/demo/floorPlan.vue' /* webpackChunkName: "pages/demo/floorPlan" */).then(m => m.default || m)
+const _041b795e = () => import('../pages/demo/vuePdf.vue' /* webpackChunkName: "pages/demo/vuePdf" */).then(m => m.default || m)
+const _09b5c86e = () => import('../pages/demo/flowChart.vue' /* webpackChunkName: "pages/demo/flowChart" */).then(m => m.default || m)
+const _5e50a6fa = () => import('../pages/demo/krImg.vue' /* webpackChunkName: "pages/demo/krImg" */).then(m => m.default || m)
+const _52b9479b = () => import('../pages/demo/objSet/EditPage.vue' /* webpackChunkName: "pages/demo/objSet/EditPage" */).then(m => m.default || m)
+const _5c387e76 = () => import('../pages/demo/fixedTirTop/every.vue' /* webpackChunkName: "pages/demo/fixedTirTop/every" */).then(m => m.default || m)
 
 
 
@@ -56,82 +56,82 @@ export function createRouter () {
     routes: [
 		{
 			path: "/",
-			component: _7dd822a1,
+			component: _f30c7f10,
 			name: "index"
 		},
 		{
 			path: "/demo/progress",
-			component: _1600e7b0,
+			component: _4a2d62ff,
 			name: "demo-progress"
 		},
 		{
 			path: "/demo/englishInput",
-			component: _5e2ca535,
+			component: _2855388c,
 			name: "demo-englishInput"
 		},
 		{
 			path: "/demo/fixedTirTop",
-			component: _676c95a4,
+			component: _231d80ad,
 			name: "demo-fixedTirTop"
 		},
 		{
 			path: "/demo/infiniteScroll",
-			component: _440de7bc,
+			component: _265f0153,
 			name: "demo-infiniteScroll"
 		},
 		{
 			path: "/demo/tree",
-			component: _77a4f2ce,
+			component: _448e60f0,
 			name: "demo-tree"
 		},
 		{
 			path: "/demo/objSet",
-			component: _56d5e9a9,
+			component: _20fe7d00,
 			name: "demo-objSet"
 		},
 		{
 			path: "/demo/searchToLocation",
-			component: _8b22feda,
+			component: _4cdf906a,
 			name: "demo-searchToLocation"
 		},
 		{
 			path: "/demo/turnPage",
-			component: _086f4327,
+			component: _5d9d19fe,
 			name: "demo-turnPage"
 		},
 		{
 			path: "/demo/spin",
-			component: _0c5bcd86,
+			component: _7a32f394,
 			name: "demo-spin"
 		},
 		{
 			path: "/demo/floorPlan",
-			component: _8a41f82c,
+			component: _0b6c07f3,
 			name: "demo-floorPlan"
 		},
 		{
 			path: "/demo/vuePdf",
-			component: _1887d8c7,
+			component: _041b795e,
 			name: "demo-vuePdf"
 		},
 		{
 			path: "/demo/flowChart",
-			component: _8dae7736,
+			component: _09b5c86e,
 			name: "demo-flowChart"
 		},
 		{
 			path: "/demo/krImg",
-			component: _5ad3931e,
+			component: _5e50a6fa,
 			name: "demo-krImg"
 		},
 		{
 			path: "/demo/objSet/EditPage",
-			component: _2a31a35c,
+			component: _52b9479b,
 			name: "demo-objSet-EditPage"
 		},
 		{
 			path: "/demo/fixedTirTop/every",
-			component: _bef0d926,
+			component: _5c387e76,
 			name: "demo-fixedTirTop-every"
 		}
     ],
