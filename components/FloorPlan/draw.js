@@ -1,6 +1,6 @@
 
 
-function init (go,content,overview) {
+function draw (go,content,data,clickFn,enterFn,leaveFn) {
     if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
     var $ = go.GraphObject.make;  // for conciseness in defining templates
 
@@ -11,16 +11,19 @@ function init (go,content,overview) {
             "undoManager.isEnabled": true
         });
     
-    function showMessage(s) {
-        document.getElementById(overview).textContent = s;
-    }
+    // function showMessage(s) {
+    //     // document.getElementById(overview).textContent = s;
+    // }
     
     myDiagram.addDiagramListener("ObjectSingleClicked",
         function(e) {
-        var part = e.subject.part;
-        if (!(part instanceof go.Link)) showMessage("Clicked on " + part.data.name);
+        var data = Object.assign({},e)
+
+        // var part = e.subject.part;
+        clickFn(data)
+        // if (!(part instanceof go.Link)) showMessage("Clicked on " + part.data.name);
     });
-    
+    //绘制
     myDiagram.nodeTemplate =
         $(go.Node, "Auto",
         $(go.Shape, "RoundedRectangle",
@@ -35,34 +38,22 @@ function init (go,content,overview) {
         new go.Binding("text", "name")),
         { //鼠标事件
             mouseEnter: function (e, node) { 
-                ElementHover(node,true);
+                enterFn(e,node)
+                // ElementHover(node,true);
             },
             mouseLeave: function (e, node) { 
-                ElementHover(node,false); 
+                leaveFn(e,node)
             }
         }
     );
     
-    //hover事件
-    function ElementHover(node,show){
-        if(show){
-            showMessage("hover on " + node.data.name);
-        }else{
-            showMessage("");
-        }
-    }
     
     
     var myModel = $(go.Model);
-    myModel.nodeDataArray =
-    [ 
-        { name: "未租", pos: "0 0", size:"50 50", color:"yellow"},
-        { name: "在租", pos: "276 19", size:"100 100", color:"#499df1"},
-        { name: "合同未生效", pos: "44 214", size:"100 50",color:"#ccc"},
-        { name: "不可用", pos: "239 171", size:"50 100",color:"#000"}
-    ];
+    myModel.nodeDataArray =[].concat(data)
+    
     myDiagram.model = myModel;
     return {diagram:myDiagram};
 }
 
-export default init; 
+export default draw; 

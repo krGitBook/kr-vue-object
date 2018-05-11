@@ -22,7 +22,15 @@
 </template>
 
 <script>
-import init from './plan';
+import draw from './draw';
+import dataFormat from './dataFormat';
+var canvasData = [ 
+        { name: "未租", pos: "0 0", size:"50 50", color:"yellow"},
+        { name: "在租", pos: "276 19", size:"100 100", color:"#499df1"},
+        { name: "合同未生效", pos: "44 214", size:"100 50",color:"#ccc"},
+        { name: "不可用", pos: "239 171", size:"50 100",color:"#000"}
+    ];
+var flowChart= '';
  export default {
     props:{
         show:{
@@ -59,78 +67,32 @@ import init from './plan';
         }
     },
     methods:{
-       
-        getGraphics(type){
-            //return type;
-        },
-        gridCheckChange(ev){
+        mouseEnter(event){
+             this.$emit('enter',canvasData,()=>{
 
-            //this.flowChart.diagram.grid.visible = ev;
+             });
         },
-        allRemove(){
-            
-            // this.flowChart.diagram.commandHandler.selectAll();
-            // this.flowChart.diagram.commandHandler.deleteSelection(); 
+        mouseLeave(event){
+             this.$emit('leave',canvasData);
         },
-        allSelect(){
-           //this.flowChart.diagram.commandHandler.selectAll(); 
-        },
-        undo(){
-           //this.flowChart.diagram.commandHandler.undo(); 
-        },
-        redo(){
-            //this.flowChart.diagram.commandHandler.redo(); 
-        },
-        save(){
-            // var myDiagram = this.flowChart.diagram;
-            // myDiagram.model.modelData.position = go.Point.stringify(myDiagram.position);
-            // var allData = myDiagram.model.toJson();
-            // alert(allData)
-        },
-        preview(){
-            // var myDiagram = this.flowChart.diagram;
-            // myDiagram.isReadOnly  = true;
-            // this.isEdit = false;
-            // this.flowChart.diagram.grid.visible = false;
-            // this.boxStyle = {paddingLeft:0}
-        },
-        fullScreen(){
-            // this.boxStyle = {
-            //     position:'fixed',
-            //     left:0,
-            //     top:0,
-            //     zIndex:1000
-            // };
-            // this.topToobarStyle = {
-            //     lineHeight:50+'px',
-            //     padding:'0px 50px'
-            // };
-        },
-        restore(){
-            // this.boxStyle = {};
-            // this.topToobarStyle = {};
-        },
-        zoom(isAdd){
-            // var scale = this.flowChart.diagram.scale;
-            // var newScale = scale + 0.01;
-            // if(!isAdd && scale>0.01){
-            //     newScale = scale - 0.01;
-            // }
-            // this.flowChart.diagram.commandHandler.resetZoom(newScale)
-        },
-        edit(){
+        mouseClick(event){
+            var everyData = {};
+            canvasData = [].concat(dataFormat.changeStatus(event));
+            flowChart.nodeDataArray = canvasData;
+            this.$emit('click',everyData,canvasData);
            
-            // this.isEdit = true;
-            // var myDiagram = this.flowChart.diagram;
-            // myDiagram.isReadOnly  = false;
-            // this.boxStyle={};
-            // this.flowChart.diagram.grid.visible = true;
-
-
         }
+        
     },
     mounted(){
-       this.flowChart =  init(go,this.drawingBoard,this.overview)
+        flowChart =  init(
+            go,
+            this.drawingBoard,
+            dataFormat.init(canvasData),
+            this.mouseClick,
+            this.mouseEnter,
+            this.mouseLeave,
+        )
     }
  }
 </script>
